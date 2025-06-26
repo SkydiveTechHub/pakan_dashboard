@@ -1,5 +1,4 @@
 import { Grid2Container, Grid4Container } from '@/components/Container'
-import { DataTable } from '@/components/DataTable'
 import { SectionCards } from '@/components/StatCard'
 import { TabTable } from '@/components/TabTable'
 import { ChartLineInteractive } from './charts/LineChart'

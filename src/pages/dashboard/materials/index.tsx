@@ -1,5 +1,4 @@
 import Materials from './Materials'
-import Zones from './Zone'
 
 const MaterialView = () => {
   return (

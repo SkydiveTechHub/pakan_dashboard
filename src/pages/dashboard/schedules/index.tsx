@@ -1,21 +1,9 @@
-import { DataTable } from '@/components/DataTable'
 import { TabTable } from '@/components/TabTable'
 import { TitleText } from '@/components/Typo'
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { MoreHorizontal } from 'lucide-react'
-import React, { useState } from 'react'
 
 const SchedulePage = () => {
-  const [pageData, setPageData] =  useState([
+  const pageData =[
     {
         id: "1",
         name: "John Doe",
@@ -46,7 +34,7 @@ const SchedulePage = () => {
         payment_method: "Bank Transfer",
         status: "Pending"
     }
-  ])
+  ]
 
       const dataColumn = [
         {

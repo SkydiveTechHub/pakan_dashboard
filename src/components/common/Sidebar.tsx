@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -11,9 +11,6 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
 
 const location = useLocation()
 const pathname = location.pathname
-
-const params = useParams()
-  const currentLang = params?.locale as string;
 
 const sidebarData = [
   {

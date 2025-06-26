@@ -1,6 +1,6 @@
 import Header from '@/components/common/NavBar'
 import Sidebar from '@/components/common/Sidebar';
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 const DashboardLayout = () => {

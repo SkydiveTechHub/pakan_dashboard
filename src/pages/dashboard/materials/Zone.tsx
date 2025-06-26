@@ -1,11 +1,9 @@
 import { DataTable } from '@/components/DataTable'
-import React, { useState } from 'react'
-import AddMaterial from './AddMaterial'
 import AddZone from './AddZone'
 import { TitleText } from '@/components/Typo'
 
 const Zones = () => {
-  const [pageData, setPageData] =  useState([
+  const pageData = [
     {
       name: "Zone A",
       location: "Geo-Boundary A",
@@ -26,7 +24,7 @@ const Zones = () => {
         name: "Zone E",
         location: "Geo-Boundary E",
         }
-  ])
+  ]
 
   const dataColumn = [
       {
@@ -38,7 +36,7 @@ const Zones = () => {
       {
         accessorKey: "location",
         header: "Geo-Boundaries",
-        cell: ({ row }:{row:any}) => <p>View Map</p>,
+        cell: ({ row }:{row:any}) => <p>View Map  {row.original.location}</p>,
       },
       {
         accessorKey: "action",

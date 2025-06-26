@@ -1,10 +1,9 @@
 import { DataTable } from '@/components/DataTable'
-import React, { useState } from 'react'
 import AddMaterial from './AddMaterial'
 import { TitleText } from '@/components/Typo'
 
 const Materials = () => {
-  const [pageData, setPageData] =  useState([
+  const pageData = [
     {
       material: "Cement",
       weight: 50,
@@ -25,7 +24,7 @@ const Materials = () => {
       material: "Bricks",
       weight: 10,
     }
-  ])
+  ]
 
   const dataColumn = [
       {

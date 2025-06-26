@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, LogOut, User } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import {  useLocation, useNavigate } from 'react-router-dom';
+import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -24,14 +23,9 @@ const Header: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [state, setState] = useState({ user: {
-    name: 'User',
-    email: 'user@abc.com'
-  } });
+  console.log(isScrolled,isMobileMenuOpen)
+
   const signOut = () => {}
-
-
   // Track scroll position to change header appearance
   useEffect(() => {
     const handleScroll = () => {
@@ -56,27 +50,6 @@ const Header: React.FC<NavbarProps> = ({ toggleSidebar }) => {
     navigate('/');
   };
 
-  // Generate navigation items based on authentication state
-  const getNavItems = () => {
-    const baseItems = [
-      { path: '/', label: 'Home' },
-      { path: '/about', label: 'About' },
-      { path: '/contact', label: 'Contact Us' }, // Added Contact Us link
-    ];
-    
-    const authItems = [
-      { path: '/', label: 'Dashboard' },
-      { path: '/user', label: 'User' },
-      { path: '/schedules', label: 'Schedules' },
-      { path: '/materials', label: 'Materials' },
-      { path: '/transactions', label: 'Payout' },
-    ];
-    
-    return isAuthenticated ? authItems : baseItems;
-  };
-
-  const navItems = getNavItems();
-  const isActive = (path: string) => location.pathname === path;
 
     return (
     <div className="flex fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-sm px-6 py-2 bg-[#FAFAF9] border-[#D6D3D1] border-b">
