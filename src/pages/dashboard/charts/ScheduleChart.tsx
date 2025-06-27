@@ -52,9 +52,9 @@ export function ChartBarMixed() {
               axisLine={false}
               tickLine={false}
               tickMargin={10}
-              tickFormatter={(key) =>
-                chartConfig[key.toLowerCase() as keyof typeof chartConfig]?.label || key
-              }
+              // tickFormatter={(key) =>
+              //   chartConfig[key.toLowerCase() as keyof typeof chartConfig]?.label || key
+              // }
             />
             <XAxis type="number" hide />
             <ChartTooltip
