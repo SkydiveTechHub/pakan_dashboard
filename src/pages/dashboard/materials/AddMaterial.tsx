@@ -20,6 +20,7 @@ const AddMaterial = ({data, type}:{data?:any, type: 'create'|'edit'}) => {
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         console.log('Form submitted:')
     }
   return (

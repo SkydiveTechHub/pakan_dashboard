@@ -15,19 +15,20 @@ import type { ChartConfig } from "@/components/ui/chart"
 import {
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
+  // ChartLegend,
 } from "@/components/ui/chart"
+
 
 export const description = "A mixed bar chart"
 
 const chartData = [
-  { browser: "Household", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "Businesses", visitors: 200, fill: "var(--color-safari)" },
+  { browser: "Household", visitors: 275, fill: "var(--color-household)" },
+  { browser: "Businesses", visitors: 200, fill: "var(--color-businesses)" },
 ]
 
 const chartConfig = {
-  household: { label: "Household" },
-  businesses: { label: "Businesses" },
+  household: { label: "Household", color: "hsl(210, 100%, 70%)" },
+  businesses: { label: "Businesses", color: "hsl(160, 100%, 70%)" },
 } satisfies ChartConfig
 
 export function ChartBarMixed() {
@@ -44,7 +45,6 @@ export function ChartBarMixed() {
             data={chartData}
             layout="vertical"
             margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-            accessibilityLayer
           >
             <YAxis
               dataKey="browser"
@@ -53,15 +53,15 @@ export function ChartBarMixed() {
               tickLine={false}
               tickMargin={10}
               tickFormatter={(key) =>
-                chartConfig[key as keyof typeof chartConfig]?.label || key
+                chartConfig[key.toLowerCase() as keyof typeof chartConfig]?.label || key
               }
             />
             <XAxis type="number" hide />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              // content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="Transactions" radius={5} />
+            <Bar dataKey="visitors" radius={5} />
           </BarChart>
         </ChartContainer>
       </CardContent>

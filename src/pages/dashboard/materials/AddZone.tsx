@@ -20,7 +20,7 @@ const AddZone = ({data, type}:{data?:any, type: 'create'|'edit'}) => {
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log('Form submitted:')
+        console.log(e.target, 'Form submitted:')
     }
   return (
     <Dialog>

@@ -1,19 +1,16 @@
 import { DataTable } from '@/components/DataTable'
-import { TitleText } from '@/components/Typo'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal } from 'lucide-react'
-import { useState } from 'react'
 
 const PayoutPage = () => {
-  const [pageData, setPageData] =  useState([{
+  const pageData = [{
     id: "1",
     name: "John Doe",
     type: "Admin",
@@ -47,7 +44,7 @@ const PayoutPage = () => {
     type: "User",
     address: "654 Maple St, City, Country",
     wallet_balance: 300,
-  }])
+  }]
 
     const dataColumn = [
         {
@@ -77,6 +74,7 @@ const PayoutPage = () => {
           cell: ({ row }:{row:any}) => {
             
               const payment = row.original
+              console.log(payment)
               return (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
