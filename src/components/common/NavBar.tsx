@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {  useLocation, useNavigate } from 'react-router-dom';
-import { LogOut } from 'lucide-react';
+import { LogOut, MenuIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -52,17 +52,11 @@ const Header: React.FC<NavbarProps> = ({ toggleSidebar }) => {
 
 
     return (
-    <div className="flex fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-sm px-6 py-2 bg-[#FAFAF9] border-[#D6D3D1] border-b">
+    <div className="flex fixed w-full lg:w-[86%] 2xl:w-[90%] items-center justify-between bg-base-100 shadow-sm px-6 py-2 bg-[#FAFAF9] border-[#D6D3D1] border-b z-[999]">
       <div className='flex justify-between w-full items-center space-x-1'>
         <div className="flex-none ">
-            <button onClick={toggleSidebar} className="btn btn-square btn-ghost lg:hidden border border-[#D6D3D1] rounded-full p-[6px]">
-              <img
-                className=""
-                src="/icons/logo.png"
-                alt="Menu"
-                width={24}
-                height={24}
-              />
+            <button onClick={toggleSidebar} className="btn btn-square btn-ghost lg:hidden p-[6px]">
+              <MenuIcon/>
             </button>
         </div>
         <div></div>
