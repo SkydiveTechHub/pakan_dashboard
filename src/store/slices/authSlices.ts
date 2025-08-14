@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 import { loginUser } from '../actions'
 
@@ -29,6 +28,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     checkAuth: (state) => {
+      console.log(state)
       // logic to check auth from localStorage or elsewhere can go here
     },
     logout: (state) => {

@@ -63,7 +63,6 @@ const DropoffZones = () => {
         <div className='flex gap-3'>
           <div className='w-1/3'>
             <DataTable
-              title='Materials'
               columns={dataColumn}
               data={pageData}
             />

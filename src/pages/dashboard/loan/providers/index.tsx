@@ -1,6 +1,6 @@
 import { DataTable } from "@/components/DataTable";
 import { Button } from "@/components/ui/button";
-import { Share2Icon, MoreVertical, PlusCircle } from "lucide-react";
+import {  MoreVertical, PlusCircle } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,

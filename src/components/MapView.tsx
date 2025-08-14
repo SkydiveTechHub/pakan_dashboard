@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, {useMemo, useState } from "react";
 import { GoogleMap, HeatmapLayer, Marker } from "@react-google-maps/api";
 import Loader from "./Loader";
 import {

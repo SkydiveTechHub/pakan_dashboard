@@ -104,7 +104,6 @@ const PayoutPage = () => {
     <div>
       {/* <TitleText text='Users' style='text-[28px]'/> */}
         <DataTable
-          title='Users'
           columns={dataColumn}
           data={pageData}
         />

@@ -64,7 +64,6 @@ const Materials = () => {
       {isMapView ? <MapComponent/> : (
       
         <DataTable
-          title='Materials'
           columns={dataColumn}
           data={pageData}
         />
