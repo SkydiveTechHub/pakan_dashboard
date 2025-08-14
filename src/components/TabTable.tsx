@@ -1,40 +1,57 @@
-"use client "
+import React, { useState } from 'react'
+import { Button } from './ui/button'
+import { DataTable, type DataTableProps } from './DataTable';
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-import { DataTable } from "./DataTable"
+interface TabDataItemProps<TData, TValue> extends DataTableProps<TData, TValue> {
+  title: string;
+  showFilter?:boolean
+  showSearch?:boolean
+  showExport?:boolean
+  onSearch?: (key:string)=>void
+  onFilter?: (key:string)=>void
+  onExport?: ()=>void
+}
 
+interface TabDataTableProps<TData, TValue> {
+  TabData: TabDataItemProps<TData, TValue>[];
+}
 
-export function TabTable({data}: { data: { index_key: string; title: string; columns: any[]; data: any[] }[] }) {
+const TabDataTable = <TData, TValue>({ TabData }: TabDataTableProps<TData, TValue>) => {
+
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
-    <div className="flex w-full flex-col gap-6">
-      <Tabs defaultValue={data[0].index_key} className="w-full">
-        <TabsList>
-          {data.map((item) => (
-            <TabsTrigger key={item.index_key} value={item.index_key}>
-              {item.title}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+    <div className='space-y-6'>
+        <div className='flex justify-between items-center'>
+            <div>
+                <div className="flex items-center p-1 gap-2 bg-[#F4F4F5] rounded-[4px]">
+                    {TabData.map((tab, index) => (
+                    <Button
+                        className={`w-[100px] ${activeTab === index ? '!bg-white':'text-[#27272A]'} `}
+                        key={index}
+                        size={'sm'}
+                        variant={activeTab === index ? 'secondary' : 'ghost'}
+                        onClick={() => setActiveTab(index)}
+                    >
+                        {tab.title}
+                    </Button>
+                    ))}
+                </div>                
+            </div>
 
-        {data.map((item) => (
-          <TabsContent key={item.index_key} value={item.index_key}>
-            <DataTable
-              title={item.title}
-              columns={item.columns}
-              data={item.data}
-            />
-          </TabsContent>
-        ))}
-      </Tabs>
+            <div>
+
+            </div>
+        </div>
+
+
+      <DataTable
+        columns={TabData[activeTab].columns}
+        data={TabData[activeTab].data}
+        emptyState={TabData[activeTab].emptyState}
+      />
     </div>
   )
 }
 
-
-
-
+export default TabDataTable

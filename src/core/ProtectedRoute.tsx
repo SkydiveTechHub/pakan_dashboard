@@ -1,13 +1,13 @@
-// import { useInvestment } from "@/context/InvestmentContext";
-// import { Navigate } from "react-router-dom";
+import React from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/store/store';
 
-// export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-//   const { isAuthenticated } = useInvestment();
-  
-//   // Redirect to sign in if not authenticated
-//   if (!isAuthenticated()) {
-//     return <Navigate to="/signin" replace />;
-//   }
-  
-//   return <>{children}</>;
-// };
+
+const ProtectedRoute = () => {
+  const { token } = useSelector((state: RootState) => state.auth);
+
+  return token ? <Outlet /> : <Navigate to="/sign-in" replace />;
+};
+
+export default ProtectedRoute;

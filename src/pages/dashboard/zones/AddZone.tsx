@@ -24,7 +24,7 @@ const AddZone = ({data, type}:{data?:any, type: 'create'|'edit'}) => {
     }
   return (
     <Dialog>
-      <form onSubmit={handleSubmit} className="w-full">
+      <form onSubmit={handleSubmit} className="">
         <DialogTrigger asChild>
           <Button variant={type=== 'create'?"default":"ghost"}>{type=== 'create'?"Add":"Edit"}</Button>
         </DialogTrigger>

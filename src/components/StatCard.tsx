@@ -13,6 +13,7 @@ import {
 export function SectionCards({
   title,
   amount,
+  type='default',
   hasTrending = true,
   trendingValue = "+12.5%",
   trendingIcon = <IconTrendingUp />,
@@ -22,6 +23,7 @@ export function SectionCards({
   trendingText = "Trending up this month",
   style
 }: {  title?: string;
+  type?:'default'|'active'|'pending'|'failed'
   amount?: string;  
   hasTrending?: boolean;
   trendingValue?: string;
@@ -35,16 +37,16 @@ export function SectionCards({
 
 }) {
   return (
-      <Card className={`@container/card ${style}`}>
+      <Card className={`@container/card ${style} ${type==='active'?"bg-[#EAFFEA]": type==='pending'?"bg-[#FFF9E1] border-[#FFE5A3]":type==='failed'?"bg-[white] border-[#DA4F14]":''}`}>
         <CardHeader>
-          <CardDescription>{title}</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+          <span className={`${type==='failed'?'text-[#DA4F14]': type==='active'?'text-[#005700]':''} text-sm font-medium`}>{title}</span>
+          <CardTitle  className={`${type==='failed'?'text-[#DA4F14]': type==='active'?'text-[#005700]':''} text-xl font-semibold `}>
             {amount}
           </CardTitle>
           {
             hasTrending && (
               <CardAction>
-                <Badge variant="outline">
+                <Badge variant="outline" className={`${type==='failed'?'text-[#DA4F14]': type==='active'?'text-[#005700]':''}`}>
                   {trendingIcon || <IconTrendingUp />}
                   {trendingValue }
                 </Badge>
@@ -59,7 +61,7 @@ export function SectionCards({
             <div className="line-clamp-1 flex gap-2 font-medium">
               {trendingText} { detailsIcon ||<IconTrendingUp className="size-4" />}
             </div>
-            <div className="text-muted-foreground">
+            <div className={`${type==='failed'?'text-[#DA4F14]': type==='active'?'text-[#005700]':''} text-muted-foreground`}>
               {detailsText} 
             </div>
           </CardFooter>            

@@ -1,8 +1,9 @@
 import { DataTable } from '@/components/DataTable'
 import AddZone from './AddZone'
 import { TitleText } from '@/components/Typo'
+import MapComponent from '@/components/Map'
 
-const Zones = () => {
+const DropoffZones = () => {
   const pageData = [
     {
       name: "Zone A",
@@ -33,11 +34,11 @@ const Zones = () => {
         cell: ({ row }:{row:any}) => <p>{row.original.name}</p>,
       },
 
-      {
-        accessorKey: "location",
-        header: "Geo-Boundaries",
-        cell: ({ row }:{row:any}) => <p>View Map  {row.original.location}</p>,
-      },
+      // {
+      //   accessorKey: "location",
+      //   header: "Geo-Boundaries",
+      //   cell: ({ row }:{row:any}) => <p>View Map  {row.original.location}</p>,
+      // },
       {
         accessorKey: "action",
         header: "Action",
@@ -51,18 +52,30 @@ const Zones = () => {
     ]
 
   return (
-    <div className='flex w-full flex-col gap-6'>
-        <TitleText text="Pickup Zones" />
-        <DataTable
-          title='Materials'
-          columns={dataColumn}
-          data={pageData}
-        />
-        <AddZone
-          type='create'
-          />
+    <div className='w-full space-y-6'>
+        <div className='flex justify-between items-center w-full'>
+          <TitleText text="Dropoff Zones" />
+          <AddZone
+            type='create'
+          />  
+        </div>
+
+        <div className='flex gap-3'>
+          <div className='w-1/3'>
+            <DataTable
+              title='Materials'
+              columns={dataColumn}
+              data={pageData}
+            />
+          </div>
+          <div className='w-2/3'>
+            <MapComponent/>
+          </div>
+        </div>
+
+          
     </div>
   )
 }
 
-export default Zones
+export default DropoffZones

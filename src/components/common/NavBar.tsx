@@ -47,7 +47,7 @@ const Header: React.FC<NavbarProps> = ({ toggleSidebar }) => {
 
   const handleSignOut = () => {
     signOut();
-    navigate('/');
+    navigate('/sign-in');
   };
 
 

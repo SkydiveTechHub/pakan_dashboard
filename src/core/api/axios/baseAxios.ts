@@ -14,7 +14,7 @@ const RequestErrors = Object.freeze({
 });
 
 // export const baseURL = process.env.REACT_APP_BASE_URL;
-export const baseURL = process.env.REACT_APP_TEST_URL;
+export const baseURL = import.meta.env.VITE_APP_BASE_URL;
 
 const axiosInstance = axios.create({
   headers: {
@@ -31,7 +31,7 @@ export const axiosInstanceV2 = axios.create({
   baseURL:
     // process.env.NODE_ENV === "development"
     // ? "http://localhost:4000"vscode-file://vscode-app/Applications/Visual%20Studio%20Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html
-    process.env.REACT_APP_BASE_URL,
+    import.meta.env.VITE_APP_BASE_URL,
 });
 
 axiosInstance.interceptors.request.use(reqInterceptor, (err) =>

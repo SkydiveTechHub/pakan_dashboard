@@ -12,7 +12,7 @@ const DashboardLayout = () => {
   return (
         <div className="flex">
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-            <div className={`relative flex-1 transition-all duration-300 ml-0 lg:ml-48  overflow-x-hidden h-screen bg-[f4f4f4] `}>
+            <div className={`relative flex-1 transition-all duration-300 ml-0  overflow-x-hidden h-screen bg-[f4f4f4] `}>
               <Header toggleSidebar={toggleSidebar}/>
               <div className="py-6 overflow-y-auto overflow-x-hidden mt-11 relative pb-12 px-2 md:px-8">
                 <Outlet />

@@ -1,8 +1,12 @@
 import { DataTable } from '@/components/DataTable'
 import AddMaterial from './AddMaterial'
 import { TitleText } from '@/components/Typo'
+import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+import MapComponent from '@/components/Map'
 
 const Materials = () => {
+  const [isMapView, setIsMapView]=  useState(false)
   const pageData = [
     {
       material: "Cement",
@@ -52,20 +56,27 @@ const Materials = () => {
 
   return (
     <div className='flex justify-start w-full flex-col gap-6'>
-      <div>
+      <div className='flex justify-between items-center w-full'>
         <TitleText text="Materials" />
+        <Button onClick={() => setIsMapView(!isMapView)} variant="secondary">{isMapView ? 'Back to Table' : 'Open Map View'}</Button>
       </div>
+
+      {isMapView ? <MapComponent/> : (
       
         <DataTable
           title='Materials'
           columns={dataColumn}
           data={pageData}
         />
+      )}
+
+      {!isMapView && (  
         <div>
           <AddMaterial
             type='create'
             />          
         </div>
+      )}
 
     </div>
   )

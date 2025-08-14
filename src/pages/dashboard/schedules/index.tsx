@@ -1,4 +1,4 @@
-import { TabTable } from '@/components/TabTable'
+import TabDataTable from '@/components/TabTable'
 import { TitleText } from '@/components/Typo'
 import { Button } from '@/components/ui/button'
 
@@ -118,7 +118,7 @@ const SchedulePage = () => {
   return (
     <div>
       <TitleText text='Schedules' style='text-[28px]'/>
-        <TabTable data={scheduleData}/>
+        <TabDataTable TabData={scheduleData}/>
     </div>
   )
 }

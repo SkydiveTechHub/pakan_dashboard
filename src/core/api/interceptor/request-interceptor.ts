@@ -1,4 +1,4 @@
-export const reqInterceptor = (req) => {
+export const reqInterceptor = (req:any) => {
 	
 	const token = localStorage.getItem("lasepa_admin_token");
 

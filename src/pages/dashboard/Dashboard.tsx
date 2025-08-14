@@ -1,6 +1,6 @@
 import { Grid2Container, Grid4Container } from '@/components/Container'
 import { SectionCards } from '@/components/StatCard'
-import { TabTable } from '@/components/TabTable'
+import TabDataTable from '@/components/TabTable'
 import { ChartLineInteractive } from './charts/LineChart'
 import { ChartBarMixed } from './charts/ScheduleChart'
 
@@ -38,7 +38,7 @@ const Dashboard = () => {
         <ChartLineInteractive />
       </Grid2Container>
 
-      <TabTable data={walletData}/>
+      <TabDataTable TabData={walletData}/>
 
       {/* <DataTable/> */}
     </div>
